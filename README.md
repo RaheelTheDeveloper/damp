@@ -4,7 +4,7 @@ Decentralized Air Quality Prediction using Machine Learning
 ### Instructions: 
 
 - Open Google Colab and mount your drive
-- Go to `air_quality_prediction.ipynb` and change the `FILE_PATH` variable where your training and test data resides. 
+- Go to `air_quality_prediction.ipynb` and change the locations where your training and test data resides. 
 
 ### Features completed:
 
