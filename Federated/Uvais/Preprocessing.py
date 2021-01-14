@@ -9,7 +9,7 @@ def Read_feature_selection(column_names,replace_NA,replace_negative):
     curdir = os.getcwd()
     
     # read csv files
-    df = pd.read_csv(curdir+str('\\')+str(glob('*.csv')[0]))
+    df = pd.read_csv(curdir+str('/')+str(glob('*.csv')[0]))
 
     # selecting station #Stockholm Torkel Knutssongatan
     df = df.loc[(df['Station Name'] == "#Stockholm Sveavägen 59 Gata") |
