@@ -21,7 +21,7 @@ def get_data_federated(dataPath):
     stations=os.listdir(dataPath)
     for station in stations:
         print("Processing year: "+ dataPath +" station: "+station)
-        airQualityData=pd.read_csv(dataPath+'\\'+station, header=12,sep=';').rename(columns={'Start':'Start','Slut':'Stop'})
+        airQualityData=pd.read_csv(dataPath+'/'+station, header=12,sep=';').rename(columns={'Start':'Start','Slut':'Stop'})
         airQualityData.rename(columns = lambda x: re.sub('NOX.*','NOX',x), inplace = True)
         airQualityData.rename(columns = lambda x: re.sub('PM10.*','PM10',x), inplace = True)
         airQualityData.rename(columns = lambda x: re.sub('PM2.5.*','PM2_5',x), inplace = True)
