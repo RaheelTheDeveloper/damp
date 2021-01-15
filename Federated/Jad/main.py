@@ -37,13 +37,16 @@ iterative_process = tff.learning.build_federated_averaging_process(model_fn=crea
 
 print("Initzialize averaging process")
 state = iterative_process.initialize()
+begin = time.time() 
 
 print("Start iterations")
 for _ in range(10):
   state, metrics = iterative_process.next(state, train_datasets)
   print('metrics={}'.format(metrics))
   
-  
+end = time.time()
+print(f"Time elapsed for training: {end-begin} Seconds")
+
 print("Global model evaluated over all clients")
 evaluation = tff.learning.build_federated_evaluation(model_fn=create_tff_model)
 test_metrics = evaluation(state.model, test_datasets)
