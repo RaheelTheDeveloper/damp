@@ -8,11 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You need to use Ubuntu 20.04 in Cloud or install Python 3.8 in your local machine explicitly. 
+First of all, you need at least 5GB memory available. Then, you need to use Ubuntu 20.04 in Cloud or install Python 3.8 in your local machine explicitly. 
 Also you need to download and set up Docker with below bash file command. 
 
 ```
-sudo bash docker.sh
+sudo bash cloud/docker.sh
 ```
 
 ### Installing
@@ -77,6 +77,25 @@ and then go into the container where you want to change the preprocessing or mod
 docker exec -it <container-name> /bin/bash
 ```
 Lastly, run your custom container again with commands in "Running the system section". 
+
+
+## Results
+The data being used for each model is at the corresponding Data folder of that version. 
+
+### Centralised Models
+
+| Versions  | Preprocessing  | Model  |  SMAPE | 
+| ------------- | ------------- |  ------------- | ------------- | 
+| v1.1 | Propogate null | LSTM | 0.51 |
+| v1.2 | Meteorological Data | LSTM | 0.46 | 
+
+### Federated Models
+
+| Versions  |  Preprocessing  | Model |  MAE |
+| -------------  |  ------------- | ------------- |------------- |
+| v1.0  | Propogate null | TFF LSTM | 0.1 |
+| v1.1 |  Meteorological Data | FEDn | 0.013 |
+| v1.2  |  One-hot encoding, GAN imputation| TFF LSTM | 0.011 |
 
 ## Built With
 
