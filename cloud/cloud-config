@@ -26,10 +26,9 @@ write_files:
       RUN pip3 install tensorflow-federated
       RUN git clone https://github.com/RaheelTheDeveloper/damp.git
       RUN pip3 install flask
-      RUN sudo apt install unzip
-      WORKDIR /damp/federated/v1.2/
-      RUN sudo unzip -j 2015-2019_sensorData_metrologicalData.zip
-      WORKDIR /../../cloud/
+      RUN apt install unzip
+      RUN unzip -j damp/federated/v1.2/2015-2019_sensorData_metrologicalData.zip -d /damp/federated/v1.2/
+      WORKDIR /damp/cloud/
       EXPOSE 5000
       ENV PATH="${PATH}:/usr/games/"
       CMD ["python3","app.py"]
