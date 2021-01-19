@@ -26,7 +26,7 @@ curl -i http://<your-public-ip>:5000/federated
 For example, we already set up a VM with a public ip of 130.238.29.31. You can run the command until the VM expires.
 
 ```
-curl -i http://130.238.29.31:5000/federated
+curl -i http://130.238.29.11:5000/federated
 ```
 
 2) If you want to run it in your local machine. You can download Docker image of our current version of damp from this link: [DockerHub](https://hub.docker.com/r/19031923/federated-damp)

@@ -11,7 +11,7 @@ import tensorflow_federated as tff
 import tensorflow as tf
 from model import create_tff_model
 from model import build_model
-
+import time
 
 dataPath = 'Data/2016-2019(NO2, NOX, PM2.5)'
 
