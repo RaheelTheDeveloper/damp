@@ -20,7 +20,7 @@ sudo bash cloud/docker.sh
 And you find your container is already running when you check the output with below command.
 
 ```
-curl -i http://<your-public-ip>:5000/federated
+curl -i http://<your-public-ip>:5000/federated/v1.2
 ```
 
 For example, we already set up a VM with a public ip of 130.238.29.95. You can run the command until the VM expires.
@@ -36,7 +36,7 @@ after you login.
 ```
 sudo bash
 docker login
-docker pull ekomurcu/damp
+docker pull ekomurcu/damp:federatedv2
 ```
 
 You can check if you downloaded it correctly by executing below command and see there there exists imageID with eb73885f1ed6
@@ -56,7 +56,7 @@ and check if it is working with your public ip by
 
 ```
 docker container ls -a
-curl -i http://<your-public-ip>:5000/federated
+curl -i http://<your-public-ip>:5000/federated/v1.2
 ```
 
 
@@ -79,7 +79,7 @@ Then, stop previously running container to free port of 5000 and build the new i
 
 ```
 docker container stop
-docker build --no-cache -t damp:federatedv2 .
+docker build --no-cache -t ekomurcu/damp:federatedv2 .
 ```
 
 Lastly, run your custom container again with commands in "Running the system section". 
