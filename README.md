@@ -23,18 +23,20 @@ And you find your container is already running when you check the output with be
 curl -i http://<your-public-ip>:5000/federated
 ```
 
-For example, we already set up a VM with a public ip of 130.238.29.31. You can run the command until the VM expires.
+For example, we already set up a VM with a public ip of 130.238.29.95. You can run the command until the VM expires.
 
 ```
-curl -i http://130.238.29.11:5000/federated
+curl -i http://130.238.29.95:5000/federated/v1.1
+
+curl -i http://130.238.29.95:5000/federated/v1.2
 ```
 
-2) If you want to run it in your local machine. You can download Docker image of our current version of damp from this link: [DockerHub](https://hub.docker.com/r/19031923/federated-damp)
+2) If you want to run it in your local machine. You can download Docker image of our current version of damp from this link: [DockerHub](https://hub.docker.com/r/ekomurcu/damp/tags?page=1&ordering=last_updated)
 after you login.
 ```
 sudo bash
 docker login
-docker pull 19031923/federated-damp
+docker pull ekomurcu/damp
 ```
 
 You can check if you downloaded it correctly by executing below command and see there there exists imageID with eb73885f1ed6
@@ -48,7 +50,7 @@ docker images
 In order to run the container image, run 
 
 ```
-docker run -d -p 5000:5000 19031923/federated-damp:latest2
+docker run -d -p 5000:5000 ekomurcu/damp:federatedv2
 ```
 and check if it is working with your public ip by 
 
@@ -66,16 +68,20 @@ In order to develop damp project further, first get the name of your running con
 ```
 docker container ls -a
 ```
-and stop current running container to free port of 5000 by
 
-```
-docker container stop 
-```
 and then go into the container where you want to change the preprocessing or model files by
 
 ```
 docker exec -it <container-name> /bin/bash
 ```
+
+Then, stop previously running container to free port of 5000 and build the new image by
+
+```
+docker container stop
+docker build --no-cache -t damp:federatedv2 .
+```
+
 Lastly, run your custom container again with commands in "Running the system section". 
 
 
