@@ -94,8 +94,8 @@ The data being used for each model is at the corresponding Data folder of that v
 | Versions  |  Preprocessing  | Model |  MAE |
 | -------------  |  ------------- | ------------- |------------- |
 | v1.0  | Propogate null | TFF LSTM | 0.1 |
-| v1.1 |  Meteorological Data | FEDn | 0.013 |
-| v1.2  |  One-hot encoding, GAN imputation| TFF LSTM | 0.011 |
+| v1.1 |  Meteorological Data | FEDn, TFF  | 0.021 |
+| v1.2  |  One-hot encoding, GAN imputation| TFF LSTM | 0.014 |
 
 ## Built With
 
